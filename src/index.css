@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, CocoSharp, BsFont, LemonMilk, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: 'CocoSharp';
+  src: local('CocoSharp'), url(./fonts/Coco-Sharp-Regular-trial.ttf) format("truetype");
+}
+@font-face {
+  font-family: 'LemonMilk';
+  src: local('LemonMilk'), url(./fonts/LEMONMILK-Regular.otf) format("opentype");
+}
+@font-face {
+  font-family: 'BsFont';
+  src: local('BsFont'), url(./fonts/NetworkFreeVersion.ttf) format("truetype");
+}
