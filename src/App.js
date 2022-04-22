@@ -1,23 +1,27 @@
 import React from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Home/Hero';
+import Beyond from './components/Home/Beyond';
 import Bag from './components/Home/Bag';
 import MindMap from './components/Home/MindMap';
-import PortableUsername from './components/Home/PortableUsername/PortableUsername';
-import GetInvolved from './components/GetInvolved';
-import Footer from './components/Footer';
+import Bags from './components/Home/Bags';
+import Teams from './components/Home/Teams';
+import Faq from './components/Home/Faq';
+// import Footer from './components/Footer'
 import './App.css';
 
 function App() {
   return (
-    <div className="App" tabIndex="-1" id="gatsby-focus-wrapper">
+    <div className='App'>
       <Navigation />
       <Hero />
+      <Beyond />
       <Bag />
       <MindMap />
-      {/* <PortableUsername />
-      <GetInvolved />
-      <Footer /> */}
+      <Bags />
+      <Teams />
+      <Faq />
+      {/* <Footer /> */}
     </div>
   );
 }

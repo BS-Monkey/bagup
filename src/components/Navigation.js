@@ -1,12 +1,8 @@
 import React, { useState } from "react"
 import styled from "@emotion/styled"
-import { useTranslation } from "react-i18next"
-import { Link } from "gatsby"
-import Logo from "./Logo"
-import { Button } from "./Typography"
+import { Link } from 'react-scroll'
 
 import mq from "../mediaQuery"
-import LanguageSwitcher from "./LanguageSwitcher"
 
 import { ReactComponent as SmartButton } from '../assets/smart.svg'
 import { ReactComponent as OpenseaButton } from '../assets/opensea.svg'
@@ -17,19 +13,18 @@ import '../index.css'
 
 const Nav = styled("nav")`
   height: 55px;
+  background-color: #1b1e22;
   font-familiy: 'CocoSharp';
-  background: transparent;
   ${p =>
     p.menuOpen &&
-    `
-    background: #121d46;
+    `    background: #14191e;
   `};
   transition: 0.2s;
   display: flex;
   justify-content: center;
   padding: 20px 40px;
   position: relative;
-  z-index: 100000;
+  z-index: 10000;
   top: 0;
 
   .social-icons {
@@ -158,18 +153,34 @@ const Links = styled("div")`
   display: none;
   align-items: center;
   a {
+    padding: 10px;
     color: white;
     text-decoration: none;
     margin-right: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    cursor: pointer;
   }
-
+  a:hover {
+    color: #c3b0b0;
+  }
+  .social-icons {
+    display: none;
+  }
   ${mq.medium`
     display: flex;
   `};
+  ${mq.large`
+    .social-icons {
+      display: block;
+    }
+  `}
 `
 
 const MobileLinks = styled("ul")`
-  background: #121d46;
+  background: #14191e;
   font-familiy: 'CocoSharp';
   font-size: 22px;
   color: #ffffff;
@@ -209,7 +220,6 @@ const MobileLinks = styled("ul")`
 `
 
 export default function Navigation() {
-  const { t } = useTranslation()
   const [menuOpen, setMenuOpen] = useState(false)
   return (
     <Nav menuOpen={menuOpen}>
@@ -228,37 +238,37 @@ export default function Navigation() {
       </div>
 
       <Links menuOpen={menuOpen}>
-        <a href="#">HOME</a>
-        <a href="#">BEYOND</a>
-        <a href="#">MINDMAP</a>
-        <a href="#">BAGS</a>
-        <a href="#">TEAMS</a>
-        <a href="#">FAQ</a>
+        <Link to="home" spy={true} smooth={true}>HOME</Link>
+        <Link to="beyond" spy={true} smooth={true}>BEYOND</Link>
+        <Link to="mindmap" spy={true} smooth={true}>MINDMAP</Link>
+        <Link to="bags" spy={true} smooth={true}>BAGS</Link>
+        <Link to="teams" spy={true} smooth={true}>TEAMS</Link>
+        <Link to="faq" spy={true} smooth={true}>FAQ</Link>
         <div className="social-icons">
-          <SmartButton />
           <OpenseaButton />
+          <SmartButton />
           <TwitterButton />
         </div>
       </Links>
 
       <MobileLinks menuOpen={menuOpen}>
         <li>
-          <a href="#">HOME</a>
+          <Link to="home" spy={true} smooth={true} onClick={() => setMenuOpen(false)}>HOME</Link>
         </li>
         <li>
-          <a href="#">BEYOND</a>
+          <Link to="beyond" spy={true} smooth={true} onClick={() => setMenuOpen(false)}>BEYOND</Link>
         </li>
         <li>          
-          <a href="#">MINDMAP</a>
+          <Link to="mindmap" spy={true} smooth={true} onClick={() => setMenuOpen(false)}>MINDMAP</Link>
         </li>
         <li>          
-          <a href="#">BAGS</a>
+          <Link to="bags" spy={true} smooth={true} onClick={() => setMenuOpen(false)}>BAGS</Link>
         </li>
         <li>          
-          <a href="#">TEAMS</a>
+          <Link to="teams" spy={true} smooth={true} onClick={() => setMenuOpen(false)}>TEAMS</Link>
         </li>
         <li>          
-          <a href="#">FAQ</a>
+          <Link to="/faq">FAQ</Link>
         </li>
       </MobileLinks>
     </Nav>

@@ -1,13 +1,14 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { useTranslation } from "gatsby-plugin-react-i18next"
-import { PAGE1_HEIGHT, PAGE1_WIDTH } from "../../global";
 import GetInvolved from "../GetInvolved";
+import Navigation from "../Navigation";
+
+import mq from "../../mediaQuery";
 
 const { innerWidth: width, innerHeight: height } = window;
 
 const MindMapContainer = styled("div")`
-  padding: 15px;
+  padding: 5px;
   background-color: #1b1e22;
   width: ${width-50};
   height: 100%;
@@ -21,12 +22,14 @@ const MindMapContainer = styled("div")`
   .map-kind img {
     width: 100%;
   }
+  ${mq.medium`
+    padding: 15px;
+  `};
 `
 
 export default function MindMap(props) {
-  const { t } = useTranslation()
   return (
-    <MindMapContainer>
+    <MindMapContainer id="mindmap">
       <img src="/image/Page-4.png" />
       <GetInvolved />
     </MindMapContainer>
